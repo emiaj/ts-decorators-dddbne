@@ -10,7 +10,7 @@
     "typescript": "^2.6.1"
   },
   "scripts": {
-    "test": "jest --env=jsdom"
+    "test": "jest --env=jsdom --watch"
   },
   "jest": {
     "transform": {
@@ -26,5 +26,8 @@
     ]
   },
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "reflect-metadata": "^0.1.10"
+  }
 }
