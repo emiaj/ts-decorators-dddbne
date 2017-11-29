@@ -1,0 +1,30 @@
+{
+  "name": "02-method-decorator-logger-decorator",
+  "version": "1.0.0",
+  "description": "",
+  "devDependencies": {
+    "@types/jest": "^21.1.6",
+    "@types/node": "^8.0.53",
+    "jest-cli": "^21.2.1",
+    "ts-jest": "^21.2.3",
+    "typescript": "^2.6.1"
+  },
+  "scripts": {
+    "test": "jest --env=jsdom --watch"
+  },
+  "jest": {
+    "transform": {
+      "^.+\\.tsx?$": "ts-jest"
+    },
+    "testRegex": "(/__tests__/.*|(\\.|/)(test|spec))\\.(jsx?|tsx?)$",
+    "moduleFileExtensions": [
+      "ts",
+      "tsx",
+      "js",
+      "jsx",
+      "json"
+    ]
+  },
+  "author": "",
+  "license": "ISC"
+}
