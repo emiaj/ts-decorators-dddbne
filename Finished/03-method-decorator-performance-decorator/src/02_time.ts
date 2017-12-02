@@ -1,4 +1,9 @@
-export default function time(instance: any, key: string, descriptor: PropertyDescriptor) {
+type FuncWithArgs = (...args: any[]) => any;
+
+export default function time(instance: any,
+    key: string,
+    descriptor: TypedPropertyDescriptor<FuncWithArgs>) {
+
     const originalMethod = descriptor.value;
 
     if (originalMethod) {
