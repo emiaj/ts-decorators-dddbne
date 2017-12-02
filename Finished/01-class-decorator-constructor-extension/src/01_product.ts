@@ -1,3 +1,6 @@
+import { rest } from './03_persistence';
+
+@rest
 export class Product {
 
     id: number;

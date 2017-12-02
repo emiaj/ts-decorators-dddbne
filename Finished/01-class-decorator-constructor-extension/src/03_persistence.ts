@@ -1,11 +1,25 @@
-interface Saveable {
-    save(): void;
+interface RestContract {
+    post(): void;
+    patch(): void;
+    del(): void;
 }
 
-export type Persistence<T> = T & Saveable;
+export function rest(func: Function) {
+    const extension = new class implements RestContract {
+        post() {
+            console.log(`Posting ${JSON.stringify(this)}`);
+        }
+        patch() {
+            console.log(`Patching ${JSON.stringify(this)}`);
+        }
+        del() {
+            console.log(`Deleting ${JSON.stringify(this)}`);
+        }
+    }
 
-export function PersistenceDecorator<T extends Function>(constructor: T) {
-    constructor.prototype.save = function () {
-        console.log(`Posting entity ${JSON.stringify(this)}`);
-    };
+    for (let property in extension) {
+        func.prototype[property] = extension[property];
+    }
 }
+
+export type Rest<T> = T & RestContract;

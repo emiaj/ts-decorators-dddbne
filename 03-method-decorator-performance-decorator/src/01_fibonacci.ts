@@ -1,4 +1,7 @@
+import time from './02_time';
 export class Fibonacci {
+    
+    @time
     static compute(n: number): number {
 
         const fib = (x: number): number => {

@@ -1,8 +1,18 @@
 import { Product } from './01_product';
+let product: Product;
 
-test('product can be saved', () => {
-    const product = new Product(1, 'Laptop', 'PR01');
+beforeEach(() => {
+    product = new Product(1, 'Laptop', 'PR01');
+});
 
-    expect(product['save']).not.toBeUndefined();
+test('product can be posted', () => {
+    expect(product['post']).not.toBeUndefined();
+});
 
+test('product can be patched', () => {
+    expect(product['patch']).not.toBeUndefined();
+});
+
+test('product can be deleted', () => {
+    expect(product['del']).not.toBeUndefined();
 });

@@ -1,11 +1,5 @@
-interface Saveable {
-    save(): void;
-}
+// RestContract interface
 
-export type Persistence<T> = T & Saveable;
+// rest decorator
 
-export function PersistenceDecorator<T extends Function>(constructor: T) {
-    constructor.prototype.save = function () {
-        console.log(`Posting entity ${JSON.stringify(this)}`);
-    };
-}
+// Rest<T> type
