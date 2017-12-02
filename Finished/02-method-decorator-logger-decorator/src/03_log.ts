@@ -1,5 +1,6 @@
+type FuncWithArgs = (...args: any[]) => any;
 
-export default function log(instance: Object, key: string, descriptor: PropertyDescriptor) {
+export default function log(instance: Object, key: string, descriptor: TypedPropertyDescriptor<FuncWithArgs>) {
     const originalMethod = descriptor.value;
 
     if (originalMethod) {

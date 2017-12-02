@@ -1,19 +1,19 @@
 
-export default function log(instance: Object, key: string, descriptor: PropertyDescriptor) {
+export default function log(instance: Function,
+    key: string,
+    descriptor: PropertyDescriptor) {
+
     const originalMethod = descriptor.value;
 
-    if (originalMethod) {
+    descriptor.value = function (...args: any[]) {
+        let parameters = args.join();
 
-        descriptor.value = function (...args: any[]) {
-            var parameters = args.join();
+        const result = originalMethod.apply(instance, args);
 
-            var result = originalMethod.apply(instance, args);
+        console.log('Call: ' + key + '(' + parameters + ') => ' + result);
 
-            console.log('Call: ' + key + '(' + parameters + ') => ' + result);
-
-            return result;
-        };
-    }
+        return result;
+    };
 
     return descriptor;
 }
